@@ -9,18 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var constants_1 = require('../constant/constants');
+var StatusPipe = (function () {
+    function StatusPipe() {
+        this.statuses = constants_1.STATUS;
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "\n    <navbar></navbar>\n    <div class=\"container\">\n        <router-outlet></router-outlet>\n    </div>\n    ",
-            styles: ["\n        .container {\n            margin-top: 5rem;\n        }\n    "]
+    StatusPipe.prototype.transform = function (statusNum) {
+        return this.statuses[statusNum];
+    };
+    StatusPipe = __decorate([
+        core_1.Pipe({
+            name: 'status'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], StatusPipe);
+    return StatusPipe;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.StatusPipe = StatusPipe;
+//# sourceMappingURL=status.pipe.js.map

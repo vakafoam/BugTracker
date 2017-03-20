@@ -9,18 +9,21 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var AppComponent = (function () {
-    function AppComponent() {
+var constants_1 = require('../constant/constants');
+var SeverityPipe = (function () {
+    function SeverityPipe() {
+        this.sev = constants_1.SEVERITY;
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            template: "\n    <navbar></navbar>\n    <div class=\"container\">\n        <router-outlet></router-outlet>\n    </div>\n    ",
-            styles: ["\n        .container {\n            margin-top: 5rem;\n        }\n    "]
+    SeverityPipe.prototype.transform = function (sevNum) {
+        return this.sev[sevNum];
+    };
+    SeverityPipe = __decorate([
+        core_1.Pipe({
+            name: 'severity'
         }), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], SeverityPipe);
+    return SeverityPipe;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.SeverityPipe = SeverityPipe;
+//# sourceMappingURL=severity.pipe.js.map
